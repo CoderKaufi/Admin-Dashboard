@@ -1,5 +1,5 @@
 html{
-    --sidebar-width : 200px;
+    --sidebar-width : 250px;
     --header-height : 200px;
     --header-width : calc(100vw - var(--sidebar-width));
     --color1 : #cfe0e8;
@@ -8,6 +8,7 @@ html{
     --color4 : #daebe8;
     --color5 : #36454F;
     --border-layout : 15px;
+    --gap : 10px;
 }
 body{
     margin:0px;
@@ -19,32 +20,40 @@ body{
     display:flex;
     width: 100vw;
     height: 100vh;
+    gap : 10px;
 }
 .sidebar{
     border-radius: var(--border-layout);
     flex-shrink: 0;
-    height: 100vh;
-    width: var(--sidebar-width);
+    height: calc(100vh - 2*var(--gap));
+    width: calc(var(--sidebar-width) - 2*(var(--gap)));
     background-color: var(--color3);
     display : flex;
     flex-direction: column;
     gap : 10vh;
+    margin-left : var(--gap);
+    margin-top: var(--gap);
+    margin-bottom: var(--gap);
+
 }
 .sidebar .title{
     font-weight: bolder;
     color : var(--color4);
-    font-size: larger;
+    font-size: 2em;
 }
 .skeleton2{
     display:flex;
     flex-direction: column;
     width: calc(100vw - var(--sidebar-width));
+    gap : var(--gap)
 }
 header{
     border-radius: var(--border-layout);
-    width: var(--header-width);
-    height: var(--header-height);
+    width: calc(var(--header-width) - var(--gap));
+    height: calc(var(--header-height) - 2*(var(--gap)));
     background-color: var(--color4);
+    margin-top: var(--gap);
+    margin-bottom: var(--gap);
 }
 header .flex-holder{
     display : flex;
@@ -55,23 +64,28 @@ header .flex-holder{
     height: var(--header-height);
 }
 header .title{
-    font-size: large;
+    font-size: 1.5em;
     color:var(--color5);
     font-weight: bold;
     
 }
 .content{
-    width: calc(100vw - var(--sidebar-width));
+    width: calc(100vw - var(--sidebar-width) - var(--gap));
     height: calc(100vh - var(--header-height));
+    border-radius: var(--border-layout);
+    background-color: var(--color2);
+    margin-bottom: var(--gap);
 }
 .sidebar .flex-holder{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: calc(var(--gap) * 2);
 }
 .link-grid{
     display: grid;
     gap : 5px;
+    margin-left: 20px;
 }
 input{
     width: calc((var(--header-width)*2/3) - 10vw);
@@ -80,4 +94,19 @@ input{
     border : 2px solid var(--color5);
     height: 20px;
     background-color: var(--color1);
+}
+.sidebar .link{
+    color : var(--color5);
+    font-size: 1.5em;
+}
+.flex-holder .icon{
+    width : 40px;
+    height: 40px;
+}
+.link-grid .flex-holder{
+       width: min-content;
+}
+.link-grid .icon{
+    width : 30px;
+    height: 30px;
 }
